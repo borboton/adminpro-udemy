@@ -7,6 +7,9 @@ import { PagesComponent } from 'src/app/pages/pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
 import { ChartsModule } from 'ng2-charts';
+
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
+
 // TEMPORAL
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficaDonaComponent } from '../components/grafica-dona/grafica-dona.component';
@@ -19,7 +22,8 @@ import { GraficaDonaComponent } from '../components/grafica-dona/grafica-dona.co
         Graficas1Component,
         PagesComponent,
         IncrementadorComponent,
-        GraficaDonaComponent
+        GraficaDonaComponent,
+        AccountSettingsComponent
     ],
     exports: [
         DashboardComponent,
