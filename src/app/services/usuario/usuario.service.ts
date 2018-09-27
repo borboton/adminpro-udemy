@@ -69,7 +69,7 @@ export class UsuarioService {
                       // localStorage.setItem('usuario', JSON.stringify(resp.usuario));
                       // this.token = resp.token;
                       // this.usuario = resp.usuario;
-                      swal('Usuario creado', 'Loguearse con ' + usuario.email, 'success');
+                      swal('Bienvenido ' + this.usuario.nombre, ' ', 'success');
                       return true;
                     });
   }
@@ -79,8 +79,9 @@ export class UsuarioService {
     let headers = new HttpHeaders().set('Authorization', this.token);
     return this.http.put(url, usuario, { headers: headers })
                     .map( (resp: any) => {
-                      this.guardarStorage(resp.usuario._id, this.token, resp.usuario);
-
+                      if (usuario._id === this.usuario._id) {
+                        this.guardarStorage(resp.usuario._id, this.token, resp.usuario);
+                      }
                       swal('Usuario actualizado', 'Se actualizaron los datos correctamente', 'success');
                       return true;
                     });
@@ -93,5 +94,24 @@ export class UsuarioService {
     }).catch( resp => {
       swal('Error al subir', 'Se produjo un error al cargar la imagen', 'error');
     });
+  }
+  cargarUsuarios(desde: number = 0) {
+    let url = URL_SERVICIOS + '/usuario?desde=' + desde;
+    let headers = new HttpHeaders().set('Authorization', this.token);
+
+    return this.http.get(url, { headers: headers });
+  }
+  buscarUsuarios( termino: string ) {
+    let url = URL_SERVICIOS + '/busqueda/coleccion/usuario/' + termino;
+    let headers = new HttpHeaders().set('Authorization', this.token);
+
+    return this.http.get(url, { headers: headers }).map( (resp: any) => {
+      return resp.usuario;
+    });
+  }
+  borrarUsuario( id: string ) {
+    let url = URL_SERVICIOS + '/usuario/' + id;
+    let headers = new HttpHeaders().set('Authorization', this.token);
+    return this.http.delete(url, { headers: headers });
   }
 }

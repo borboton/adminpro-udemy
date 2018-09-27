@@ -14,6 +14,7 @@ import { PAGES_ROUTES } from './pages.routes';
 import { ChartsModule } from 'ng2-charts';
 
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 // TEMPORAL
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
@@ -21,6 +22,7 @@ import { GraficaDonaComponent } from '../components/grafica-dona/grafica-dona.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { ProfileComponent } from './profile/profile.component';
         AccountSettingsComponent,
         PromesasComponent,
         RxjsComponent,
-        ProfileComponent
+        ProfileComponent,
+        UsuariosComponent,
+        ModalUploadComponent
     ],
     exports: [
         DashboardComponent,

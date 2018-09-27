@@ -22,7 +22,7 @@ export class BreadcrumbsComponent implements OnInit {
         content: this.title
       };
       this.meta.updateTag(metaTag);
-      console.log(event);
+      // console.log(event);
     });
    }
 
